@@ -49,7 +49,7 @@ func main() {
                 return bytes.NewBuffer(jsonData)
             }(),
             Headers: map[string]string{
-                "Content-Type": "application/json",
+                "content-Type": "application/json",
             },
         },
         {
@@ -67,7 +67,7 @@ func main() {
                 return &b
             }(),
             Headers: map[string]string{
-                "Content-Type": "multipart/form-data",
+                "content-Type": "multipart/form-data",
             },
         },
     }

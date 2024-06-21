@@ -81,8 +81,8 @@ func main() {
 	}
 }
 
-func makeRequest(client *https.Client, reqConfig RequestConfig) (string, error) {
-	req, err := https.NewRequest(reqConfig.Method, reqConfig.URL, reqConfig.Body)
+func makeRequest(client *http.Client, reqConfig RequestConfig) (string, error) {
+	req, err := http.NewRequest(reqConfig.Method, reqConfig.URL, reqConfig.Body)
 	if err != nil {
 		return "", err
 	}

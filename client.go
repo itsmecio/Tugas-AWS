@@ -36,11 +36,11 @@ func main() {
 	urls := []RequestConfig{
 		{
 			Method: "GET",
-			URL:    "http://localhost:8443/",
+			URL:    "https://localhost:8443/",
 		},
 		{
 			Method: "POST",
-			URL:    "http://localhost:8443/postjson",
+			URL:    "https://localhost:8443/postjson",
 			Body: func() io.Reader {
 				data := map[string]string{"message": "Hello, server!"}
 				jsonData, _ := json.Marshal(data)
@@ -52,7 +52,7 @@ func main() {
 		},
 		{
 			Method: "POST",
-			URL:    "http://localhost:8443/upload",
+			URL:    "https://localhost:8443/upload",
 			Body: func() io.Reader {
 				file, _ := os.Open("testfile.txt")
 				defer file.Close()
@@ -81,8 +81,8 @@ func main() {
 	}
 }
 
-func makeRequest(client *http.Client, reqConfig RequestConfig) (string, error) {
-	req, err := http.NewRequest(reqConfig.Method, reqConfig.URL, reqConfig.Body)
+func makeRequest(client *https.Client, reqConfig RequestConfig) (string, error) {
+	req, err := https.NewRequest(reqConfig.Method, reqConfig.URL, reqConfig.Body)
 	if err != nil {
 		return "", err
 	}
